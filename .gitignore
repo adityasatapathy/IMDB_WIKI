@@ -1,0 +1,6 @@
+chromedriver
+Reports/allure_reports
+Reports/log.log
+.pytest_cache
+Screenshots
+Configuration/config_local.properties

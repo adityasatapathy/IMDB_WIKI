@@ -28,7 +28,8 @@ class Baseclass1:
         """
         try:
             config = configparser.RawConfigParser()
-            config.read('../Configuration/config_local.properties')
+            # config.read('..\\Configuration\\config_local.properties')
+            config.read('C://Users//user//PycharmProjects//IMDB_WIKI//Cofiguration//config_local.properties')
             return config.get(section, field)
         except Exception as e:
             self.log.error(f"Exception '{e}' while reading config file")
