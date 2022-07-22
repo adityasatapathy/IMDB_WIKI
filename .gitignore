@@ -1,4 +1,4 @@
-chromedriver
+../chromedriver.exe
 Reports/allure_reports
 Reports/log.log
 .pytest_cache
