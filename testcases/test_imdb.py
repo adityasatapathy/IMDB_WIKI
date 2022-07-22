@@ -45,9 +45,16 @@ class Test_demo(Baseclass1, unittest.TestCase):
         return release_country_wiki
 
     def test_relase_date_both(self):
-        x = self.releasedate_IMDB()
-        print(type(x[0]))
-        y = self.releasedate_wiki()
-        print(type(y))
-        assert x == y
+        release_date_imdb = self.releasedate_IMDB()
+        # print(type(release_date_imdb[0]))
+        release_date_wiki = self.releasedate_wiki()
+        # print(type(release_date_wiki))
+        assert release_date_imdb == release_date_wiki
+
+    def test_relase_country_both(self):
+        release_country_imdb = self.releasecountry_IMDB()
+        print(type(release_country_imdb))
+        release_country_wiki = self.releasecountry_wiki()
+        print(type(release_country_wiki))
+        assert release_country_imdb==release_country_wiki
 
