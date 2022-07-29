@@ -12,6 +12,7 @@ class Imdb(Baseclass1):
     _release_data = "//a[contains(text(),'Release date')]/../div/ul/li"
     _country_origin = "//span[contains(text(),'Country of origin')]/../div/ul/li"
     _text_release_date = (By.XPATH, "//a[contains(text(),'Release date')]/../div/ul/li")
+    _text_release_country = (By.XPATH, "//span[contains(text(),'Country of origin')]/../div/ul/li")
 
     def get_release_date(self):
         self.scrollto(self._release_data, "xpath")
@@ -25,3 +26,6 @@ class Imdb(Baseclass1):
         self.scrollto(self._country_origin, "xpath")
         cl.allurelogs("Region fetched successfully")
         cl.customlogger().info("Region fetched successfully")
+
+    def text_release_country(self):
+        return self.driver.find_element(*Imdb._text_release_country)

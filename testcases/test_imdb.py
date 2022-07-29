@@ -1,6 +1,7 @@
 import unittest
 import pytest
 from PageObject.imdb_page import Imdb
+from PageObject.wiki_page import wiki
 from base.baseclass import Baseclass1
 from selenium.webdriver.common.by import By
 
@@ -13,8 +14,9 @@ class Test_demo(Baseclass1, unittest.TestCase):
     def object(self):
         self.base = Baseclass1()
         self.imdb = Imdb(self.driver)
+        self.wiki = wiki(self.driver)
 
-    def test_releasedate_IMDB(self):
+    def releasedate_IMDB(self):
         self.driver.get(self.urls[0])
         self.imdb.get_release_date()
         release_date = self.imdb.text_release_date().text
@@ -26,21 +28,21 @@ class Test_demo(Baseclass1, unittest.TestCase):
     def releasecountry_IMDB(self):
         self.driver.get(self.urls[0])
         self.imdb.get_country_region()
-        release_country = self.driver.find_element(By.XPATH, "//span[contains(text(),'Country of origin')]/../div/ul/li").text
+        release_country = self.imdb.text_release_country().text
         print(f"Release country:{release_country}")
         return release_country
 
     def releasedate_wiki(self):
         self.driver.get(self.urls[1])
-        self.imdb.get_release_date()
-        release_date_wiki = self.driver.find_element(By.XPATH, "//div[contains(text(),'Release date')]/../../td/div/ul/li").text
+        self.wiki.get_release_date_wiki()
+        release_date_wiki = self.wiki.text_release_date_wiki().text
         print(f"Release date is:{release_date_wiki}")
         return release_date_wiki
 
     def releasecountry_wiki(self):
         self.driver.get(self.urls[1])
-        self.imdb.get_country_region()
-        release_country_wiki = self.driver.find_element(By.XPATH, "//th[contains(text(),'Country')]/../td").text
+        self.wiki.get_country_region_wiki()
+        release_country_wiki = self.wiki.text_release_country_wiki().text
         print(f"Release country:{release_country_wiki}")
         return release_country_wiki
 
@@ -54,5 +56,5 @@ class Test_demo(Baseclass1, unittest.TestCase):
         print(type(release_country_imdb))
         release_country_wiki = self.releasecountry_wiki()
         print(type(release_country_wiki))
-        assert release_country_imdb==release_country_wiki
+        assert release_country_imdb == release_country_wiki
 
