@@ -14,10 +14,10 @@ class Test_demo(Baseclass1, unittest.TestCase):
         self.base = Baseclass1()
         self.imdb = Imdb(self.driver)
 
-    def releasedate_IMDB(self):
+    def test_releasedate_IMDB(self):
         self.driver.get(self.urls[0])
         self.imdb.get_release_date()
-        release_date = self.driver.find_element(By.XPATH, "//a[contains(text(),'Release date')]/../div/ul/li").text
+        release_date = self.imdb.text_release_date().text
         # print(f"Release date is:{release_date}")
         release_date_split = release_date.split(" (United States)")
         print(release_date_split[0])
@@ -46,9 +46,7 @@ class Test_demo(Baseclass1, unittest.TestCase):
 
     def test_relase_date_both(self):
         release_date_imdb = self.releasedate_IMDB()
-        # print(type(release_date_imdb[0]))
         release_date_wiki = self.releasedate_wiki()
-        # print(type(release_date_wiki))
         assert release_date_imdb == release_date_wiki
 
     def test_relase_country_both(self):
