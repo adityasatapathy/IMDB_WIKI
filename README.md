@@ -1,4 +1,4 @@
-Selenium automation testing for Admin console UI.
+Selenium automation testing using python for amazon website.
 
 Selenium is an open source web application automation tool which can also test with different browser
 

@@ -1,0 +1,18 @@
+class LoginConstants:
+    """values"""
+    home_title = "Online Shopping site in India: Shop Online for Mobiles, Books, Watches, Shoes and More - Amazon.in"
+    home_url = "https://www.amazon.in/"
+
+    """XPATHs"""
+    account = "//span[contains(text(), 'Account & Lists')]"
+    amazon_logo = "//span[@class='nav-sprite nav-logo-base']"
+    term_condition = "(//a[contains(text(),'Conditions of Use')])[1]"
+    hamburger_menu_icon = "(//span[contains(text(), 'All')]/..)[2]"
+    tv_button = "//a[contains(text(), 'Televisions')]"
+    tv_appliance_button = "//div[contains(text(), 'shop by category')]/../../../ul/li//descendant::a/div[contains(text(),'TV, Appliances, Electronics')]"
+    samsung_tv_select = "//span[contains(text(), 'Shop now')]/../../../a/div/img[@src='https://m.media-amazon.com/images/G/31/img21/TVs/Sabeer/Prime_DAY_JULY/PD_TV_STORE/samsung._CB631539421_.jpg']"
+    all_result_button = "//span[contains(text(), 'See all results')]"
+    high_low_sort = "//a[contains(text(), 'Price: High to Low')]"
+    filter_button = "//span[contains(text(), 'Featured')]"
+    list_of_all_price = "//span[contains(text(), 'Samsung')]/../../../../div/div[1]/a/span/span/span[2]"
+    second_max_path = "//span[contains(text(), 'Samsung')]/../../../../div/div[1]/a/span/span/span[2][contains(text(),'1,21,990')]"

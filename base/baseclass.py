@@ -82,6 +82,23 @@ class Baseclass1:
             self.take_screenshot(locatortype)
         return webelement
 
+        # function which can be used through out the framework to find the WebElements
+    def get_web_elements(self, locatorvalue, locatortype="id"):
+        """This method is commonly used function by which we can get any web element"""
+        webelement = None
+        try:
+            locatortype = locatortype.lower()
+            locatorBytype = self.getlocatortype(locatortype)
+            webelement = self.driver.find_elements(locatorBytype, locatorvalue)
+            self.log.info(
+                f"Web Element found with the locator value:{locatorvalue} with the locator type:{locatortype}")
+        except:
+            self.log.error(
+                f"Web Element not found with the locator value:{locatorvalue} with the locator type:{locatortype}")
+            print_stack()
+            self.take_screenshot(locatortype)
+        return webelement
+
     # Generic function which can be used to wait for the element until it's visible on the screen
     def wait_for_element(self, locatorvalue, locatortype):
         """This function uses explicit wait for all the element which invoke this function"""
